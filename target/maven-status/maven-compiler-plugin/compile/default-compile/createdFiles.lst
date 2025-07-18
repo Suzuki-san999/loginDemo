@@ -1,0 +1,11 @@
+com\example\demo\DemoApplication.class
+com\example\demo\SecurityConfig.class
+com\example\demo\UserForm.class
+com\example\demo\HelloController.class
+com\example\demo\UserController.class
+com\example\demo\LoginUserDetails.class
+com\example\demo\LoginController.class
+com\example\demo\UserRepository.class
+com\example\demo\UserService.class
+com\example\demo\LoginUserDetailsService.class
+com\example\demo\UserBean.class
