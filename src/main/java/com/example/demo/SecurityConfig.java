@@ -40,6 +40,7 @@ public class SecurityConfig {
                         .requestMatchers("/loginForm").permitAll()
                         .requestMatchers("/users").permitAll()
                         .requestMatchers("/users/create").permitAll()
+                        .requestMatchers("/").permitAll() 
                         .anyRequest().authenticated());
         return http.build();
     }
