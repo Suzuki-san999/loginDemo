@@ -12,6 +12,10 @@ public class UserService {
 
     public UserForm create(UserForm userForm) {
         userForm.setPassword(new BCryptPasswordEncoder().encode(userForm.getPassword()));
+        // ロールが空なら自動的に ROLE_USER にする
+        if (userForm.getRole() == null || userForm.getRole().isBlank()) {
+            userForm.setRole("ROLE_USER");
+        }
         UserBean userBean = new UserBean();
         BeanUtils.copyProperties(userForm, userBean);
         userRepository.save(userBean);

@@ -13,4 +13,6 @@ public class UserForm {
     private String username;
     @Size(min = 6, max = 12)
     private String password;
+    
+    private String role;
 }

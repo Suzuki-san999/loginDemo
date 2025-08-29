@@ -25,6 +25,6 @@ public class LoginUserDetailsService implements UserDetailsService {
 
     private Collection<GrantedAuthority> getAuthorities(UserBean userBean) {
 
-        return AuthorityUtils.createAuthorityList("ROLE_USER");
+         return AuthorityUtils.createAuthorityList(userBean.getRole());
     }
 }

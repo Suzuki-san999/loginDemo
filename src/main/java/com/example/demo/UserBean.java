@@ -26,4 +26,6 @@ public class UserBean {
     @Column(nullable = false)
     @JsonIgnore
     private String password;
+
+    private String role;
 }

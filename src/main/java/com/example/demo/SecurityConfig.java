@@ -16,6 +16,9 @@ public class SecurityConfig {
     @Autowired
     private LoginUserDetailsService loginUserDetailsSrevice;
 
+    @Autowired
+    private CustomLoginSuccessHandler successHandler;
+
     public void configureAuthenticationManager(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(loginUserDetailsSrevice).passwordEncoder(passwordEncoder());
     }
@@ -30,7 +33,8 @@ public class SecurityConfig {
         http.formLogin(login -> login
                 .loginProcessingUrl("/login")
                 .loginPage("/loginForm")
-                .defaultSuccessUrl("/hello", true)
+                //.defaultSuccessUrl("/hello", true)
+                .successHandler(successHandler)
                 .failureUrl("/loginForm?error")
                 .usernameParameter("username").passwordParameter("password")
                 .permitAll()).logout(logout -> logout
@@ -41,6 +45,9 @@ public class SecurityConfig {
                         .requestMatchers("/users").permitAll()
                         .requestMatchers("/users/create").permitAll()
                         .requestMatchers("/").permitAll() 
+                        .requestMatchers("/index").permitAll()
+                        .requestMatchers("/index.html").permitAll()
+                        .requestMatchers("/home").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }
